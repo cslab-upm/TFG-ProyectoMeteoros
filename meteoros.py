@@ -205,7 +205,8 @@ def manejodats(archivos,flag):
             fileTabla1 = open(directorio + "/" + archivos[i].replace('.dat','_tabla1.txt'),"w")
             fileTabla2 = open(directorio + "/" + archivos[i].replace('.dat','_tabla2.txt'),"w")
             for l in range(len(sinRuido)):
-                t = datetime.datetime.fromtimestamp(float(sinRuido[l][0])).strftime('%Y/%m/%d-%H:%M:%S.%f')
+                ts = float(sinRuido[l][0])-3600
+                t = datetime.datetime.fromtimestamp(ts).strftime('%Y/%m/%d-%H:%M:%S.%f')
                 t = t[:-3]
                 fileTabla1.write(t + ' ' + sinRuido[l][0] + ' ' + sinRuido[l][1] + ' ' + sinRuido[l][2] + '\n')
                 if(len(sinRuido[l]) == 7):
